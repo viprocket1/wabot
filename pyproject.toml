@@ -13,4 +13,5 @@ Django = "^3.0"
 python = "^3.8"
 twilio = "^7.16.1"
 openai = "^0.26.0"
+twitter = "^1.19.6"
 [tool.poetry.dev-dependencies]

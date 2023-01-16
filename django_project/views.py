@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from twilio.twiml.messaging_response import MessagingResponse
 import openai
 import os
+import twitter
+
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
@@ -30,3 +32,20 @@ def handle_incoming_message(request):
     # if not responded:
     #     msg.body("Sorry, I didn't understand that. Please try again.")
     return HttpResponse(str(resp))
+
+
+def post_tweet(request):
+    # Create an instance of the Twitter API
+    api = twitter.Api(consumer_key='YOUR_CONSUMER_KEY',
+                      consumer_secret='YOUR_CONSUMER_SECRET',
+                      access_token_key='YOUR_ACCESS_TOKEN_KEY',
+                      access_token_secret='YOUR_ACCESS_TOKEN_SECRET')
+
+    # Compose the tweet
+    tweet_text = 'Hello, world!'
+
+    # Post the tweet
+    api.PostUpdate(tweet_text)
+
+    # Return a response to indicate success
+    return HttpResponse('Tweet posted successfully!')
