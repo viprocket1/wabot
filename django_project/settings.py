@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
-os.environ["TWILIO_ACCOUNT_SID"] = "AC3e6f069fc91041066f0f8f8d21a39780"
-os.environ["TWILIO_AUTH_TOKEN"] = "b27a7244aeb66ac8a83508ad6b679c86"
+os.environ["TWILIO_ACCOUNT_SID"] = os.getenv('TWILIO_ACCOUNT_SID')
+os.environ["TWILIO_AUTH_TOKEN"] = os.getenv('TWILIO_AUTH_TOKEN')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
